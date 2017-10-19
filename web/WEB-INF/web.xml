@@ -29,6 +29,10 @@
         <servlet-name>ColumnaSerM</servlet-name>
         <servlet-class>controller.ColumnaSerM</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContextoSer</servlet-name>
+        <servlet-class>controller.ContextoSer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -60,6 +64,10 @@
     <servlet-mapping>
         <servlet-name>ColumnaSerM</servlet-name>
         <url-pattern>/ColumnaSerM</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContextoSer</servlet-name>
+        <url-pattern>/ContextoSer</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

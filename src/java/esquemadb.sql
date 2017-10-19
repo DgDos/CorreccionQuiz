@@ -52,6 +52,41 @@ CREATE TABLE IF NOT EXISTS `tabla` (
   CONSTRAINT `tabla_ibfk_1` FOREIGN KEY (`id_esquema`) REFERENCES `esquema` (`id_esquema`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
+CREATE TABLE `modelonavegacion` (
+`ID` INT(10) NOT NULL AUTO_INCREMENT,
+`nombre` VARCHAR(30) NOT NULL,
+PRIMARY KEY (`ID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `contextonavegacion` (
+`ID` INT(10) NOT NULL AUTO_INCREMENT,
+`link` VARCHAR(30) NOT NULL,
+`ID_Modelo` INT(10) NULL DEFAULT NULL,
+PRIMARY KEY (`ID`),
+INDEX `ID_Modelo` (`ID_Modelo`),
+CONSTRAINT `contextonavegacion_ibfk_1` FOREIGN KEY (`ID_Modelo`) REFERENCES `modelonavegacion` (`ID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `unidadabstractainformacion` (
+`ID` INT(10) NOT NULL AUTO_INCREMENT,
+`ID_Contexto` INT(10) NOT NULL,
+`ID_Tabla` INT(11) NOT NULL,
+PRIMARY KEY (`ID`),
+INDEX `ID_Contexto` (`ID_Contexto`),
+INDEX `ID_Tabla` (`ID_Tabla`),
+CONSTRAINT `unidadabstractainformacion_ibfk_1` FOREIGN KEY (`ID_Contexto`) REFERENCES `contextonavegacion` (`ID`),
+CONSTRAINT `unidadabstractainformacion_ibfk_2` FOREIGN KEY (`ID_Tabla`) REFERENCES `tabla` (`id_tabla`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+
+
 -- Dumping data for table esquemadb.tabla: ~7 rows (approximately)
 /*!40000 ALTER TABLE `tabla` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tabla` ENABLE KEYS */;
