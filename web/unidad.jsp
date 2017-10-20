@@ -1,4 +1,7 @@
+<%@page import="model.Tabla"%>
+<%@page import="model.contextoNavegacion"%>
 <%@page import="model.Model"%>
+<%@page import="model.Esquema"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Agregar Contexto</title>
+        <title>Agregar Unidad</title>
         <!--
         Ocean Theme
         http://www.templatemo.com/tm-484-ocean
@@ -39,33 +42,45 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-xs-center">
 
-                    <h2 class="tm-section-title">Agregar Contexto</h2>
+                    <h2 class="tm-section-title">Agregar Unidad</h2>
                     <br><br>
 
                 </div>
 
 
-                <form align="center" action="ContextoSer" method="post" class="tm-contact-form">                                
+                <form align="center" action="Unidad" method="post" class="tm-contact-form">                                
                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
-                        <label for="link">Link</label>
-                        <input type="text" id="link" name="link" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
                         <br>
-                        <label for="id">Modelo</label>
+                        <label for="idC">Contexto</label>
 
-                        <select name="id" class="form-control form-control-lg">
+                        <select name="idC" class="form-control form-control-lg">
                             <%
                                 if (request.getAttribute("respuesta") != null) {
-                                    ArrayList<Model> array = (ArrayList<Model>) request.getAttribute("respuesta");
+                                    ArrayList<contextoNavegacion> array = (ArrayList<contextoNavegacion>) request.getAttribute("respuesta");
                                     System.out.println(array.toString());
-                                    for (Model esquema : array) {     
+                                    for (contextoNavegacion esquema : array) {     
                             %>
-                            <option value="<%=esquema.getID()%>"><%=esquema.getNombre()%></option>
+                            <option value="<%=esquema.getID()%>"><%=esquema.getLink()%></option>
+                            <%      }
+                                }
+                            %>
+                        </select>
+                        <br>
+                        <label for="idT">Tabla</label>
+
+                        <select name="idT" class="form-control form-control-lg">
+                            <%
+                                if (request.getAttribute("respuesta2") != null) {
+                                    ArrayList<Tabla> array = (ArrayList<Tabla>) request.getAttribute("respuesta2");
+                                    System.out.println(array.toString());
+                                    for (Tabla esquema : array) {     
+                            %>
+                            <option value="<%=esquema.getId_tabla()%>"><%=esquema.getNombre_tabla()%></option>
                             <%      }
                                 }
                             %>
                         </select>
 
-                        <%session.setAttribute("value", "1");%>
                         <br><br>
                         <button type="submit" class="btn tm-bordered-btn pull-xs-right">Agregar</button> 
                     </div>                         

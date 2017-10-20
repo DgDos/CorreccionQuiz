@@ -33,6 +33,10 @@
         <servlet-name>ContextoSer</servlet-name>
         <servlet-class>controller.ContextoSer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Unidad</servlet-name>
+        <servlet-class>controller.Unidad</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -68,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>ContextoSer</servlet-name>
         <url-pattern>/ContextoSer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Unidad</servlet-name>
+        <url-pattern>/Unidad</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
