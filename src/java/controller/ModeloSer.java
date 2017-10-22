@@ -5,10 +5,8 @@
  */
 package controller;
 
-import dao.ContextoDAO;
-import dao.UnidadDAO;
+import dao.ModeloDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LabingXEON
+ * @author FiJus
  */
-public class Unidad extends HttpServlet {
+public class ModeloSer extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -35,7 +33,7 @@ public class Unidad extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+       
     }
 
     /**
@@ -49,15 +47,11 @@ public class Unidad extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UnidadDAO unidadDao = new UnidadDAO();
-        int idC = Integer.parseInt(request.getParameter("idC"));
-        int idT = Integer.parseInt(request.getParameter("idT"));
-
-
-        
+        ModeloDAO Mdao = new ModeloDAO();
+        String modelo = request.getParameter("modelo");
 
         try {
-            unidadDao.addUnidad(idC, idT);
+            Mdao.addModelo(modelo);
         } catch (SQLException ex) {
             Logger.getLogger(SchemaSer.class.getName()).log(Level.SEVERE, null, ex);
         }

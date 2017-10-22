@@ -37,6 +37,10 @@
         <servlet-name>Unidad</servlet-name>
         <servlet-class>controller.Unidad</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModeloSer</servlet-name>
+        <servlet-class>controller.ModeloSer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -76,6 +80,10 @@
     <servlet-mapping>
         <servlet-name>Unidad</servlet-name>
         <url-pattern>/Unidad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModeloSer</servlet-name>
+        <url-pattern>/ModeloSer</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

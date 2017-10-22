@@ -26,7 +26,11 @@ public class ModeloDAO {
         connection = DbUtil.getConnection();
     }
 
-
+    public void addModelo(String nombre) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into modelonavegacion(nombre) values (?)");
+        preparedStatement.setString(1, nombre);
+        preparedStatement.executeUpdate();
+    }
 
 
 
